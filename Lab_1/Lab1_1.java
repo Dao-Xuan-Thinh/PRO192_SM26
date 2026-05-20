@@ -1,18 +1,38 @@
-package Lab_1;
 import java.util.Scanner;
 
 public class Lab1_1 {
     public static void main(String[] args) {
-        float a, b, c;
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter value for a:");
-        a = sc.nextFloat();
+        System.out.printf("Enter number of rows: ");
+        int rows = sc.nextInt();
 
-        System.out.println("Enter value for b:");
-        b = sc.nextFloat();
+        System.out.printf("Enter number of columns: ");
+        int columns = sc.nextInt();
 
-        c = a + b;
-        System.out.println("a + b = " + c);
+        int[][] a = new int [rows][columns];
+        System.out.printf("Enter the matrix: ");
+
+        for(int i = 0; i < rows; i++){
+            for(int j = 0; j < columns; j++){
+                System.out.printf("a["+i+"]["+j+"] = ");
+                a[i][j] = sc.nextInt();
+            }
+        }
+
+        int sum = 0;
+        float average = 0;
+        System.out.println("Matrix Input-ed: ");
+        for(int i = 0; i < rows; i++){
+            for(int j = 0; j < columns; j++){
+                System.out.printf("%d ", a[i][j]);
+                sum += a[i][j];
+            }
+            System.out.println();
+        }
+
+        System.out.println("Sum: " +sum);
+        average = sum / (rows + columns);
+        System.out.println("Average: " +average);
     }
 }

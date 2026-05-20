@@ -1,21 +1,17 @@
-package Lab_1;
 import java.util.Scanner;
 
 public class Lab1_3 {
     public static void main(String[] args) {
-        float a, b, c, d;
-        Scanner sc = new Scanner(System.in);
-        
-        System.out.println("Math: ");
-        a = sc.nextFloat();
+        String[] list = new String[10];
 
-        System.out.println("Physics: ");
-        b = sc.nextFloat();
+        for(int i = 0; i < 10; i++){
+            Scanner sc = new Scanner(System.in);
+            list[i] = sc.nextLine();
+            list[i] = list[i].toUpperCase();
+        }
 
-        System.out.println("Chemistry: ");
-        c = sc.nextFloat();
-
-        d = (a + b + c) / 3;
-        System.out.println("Average = " + d);
-    }
+        for (String x : list){
+            System.out.println(x);
+        }
+    }    
 }
