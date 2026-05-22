@@ -1,4 +1,4 @@
-package Lab_2;
+package Slot_2;
 import java.util.Scanner;
 
 public class Lab2_5 {
