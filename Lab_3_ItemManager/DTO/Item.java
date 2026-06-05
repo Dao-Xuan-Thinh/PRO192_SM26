@@ -5,35 +5,52 @@ import java.util.Scanner;
 public class Item {
     protected int value;
     protected String creator;
-    
-    public Item(){
+    protected static Scanner sc = new Scanner(System.in);
+
+    public Item() {
         this.value = 0;
-        this.creator = "null";
+        this.creator = "";
     }
 
-    public Item(int vaule, String creator){
-        this.vaule = vaule;
+    public Item(int value, String creator) {
+        this.value = value;
         this.creator = creator;
     }
 
-    public int get_Vaule(){
+    public int get_Value() {
         return value;
     }
 
-    public String get_Creator(){
+    public String get_Creator() {
         return creator;
     }
 
-    public output(){
-        System.out.println("Value >> " +value);
-        System.out.println("Creator >> " +creator);
+    public void set_Value(int value) {
+        this.value = value;
     }
 
-    public input(){
-        static Scanner sc = new Scanner(System.in);
-        do{
-            this.vaule = sc.nextInt();
-            this.creator = sc.nextLine();
-        }while (vaule <= 0 && creator != "");
+    public void set_Creator(String creator) {
+        this.creator = creator;
+    }
+
+    public void output() {
+        System.out.println("Value >> " + value);
+        System.out.println("Creator >> " + creator);
+    }
+
+    public void input() {
+        do {
+            try {
+                System.out.print("Enter value (> 0): ");
+                this.value = sc.nextInt();
+                sc.nextLine();
+                System.out.print("Enter creator: ");
+                this.creator = sc.nextLine();
+            } catch (Exception e) {
+                System.out.println("Invalid input, please try again.");
+                sc.nextLine();
+                this.value = 0;
+            }
+        } while (value <= 0 || creator.isEmpty());
     }
 }

@@ -1,37 +1,50 @@
 package DTO;
 
-import java.util.Scanner;
-
-public class Statue extends Item{
+public class Statue extends Item {
     private int weight;
     private String color;
 
-    public Statue(){
-
+    public Statue() {
     }
 
-    public Statue(int vaule, String creator, int weight, String color){
-        super(vaule, creator);
+    public Statue(int value, String creator, int weight, String color) {
+        super(value, creator);
         this.weight = weight;
         this.color = color;
     }
 
-    public get_weight(){
+    public int get_weight() {
         return weight;
     }
 
-    public get_color(){
+    public String get_color() {
         return color;
     }
 
-    public output_Statue(){
-        System.out.println("Weight >> " +weight);
-        System.out.println("Color >> " +color);
+    public void set_weight(int weight) {
+        this.weight = weight;
     }
 
-    public intput_Statue(){
+    public void set_color(String color) {
+        this.color = color;
+    }
+
+    public void outputStatue() {
+        output();
+        System.out.println("Weight: " + weight);
+        System.out.println("Color: " + color);
+    }
+
+    public void inputStatue() {
         input();
-        this.weight = sc.nextInt();
-        this.color = sc.nextLine();
+        try {
+            System.out.print("Enter weight: ");
+            this.weight = sc.nextInt();
+            sc.nextLine();
+            System.out.print("Enter color: ");
+            this.color = sc.nextLine();
+        } catch (Exception e) {
+            System.out.println("Invalid input: " + e.getMessage());
+        }
     }
 }

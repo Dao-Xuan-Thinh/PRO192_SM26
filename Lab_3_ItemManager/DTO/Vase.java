@@ -1,37 +1,50 @@
 package DTO;
 
-import java.util.Scanner;
-
-public class Vase extends Item{
+public class Vase extends Item {
     private int height;
     private String material;
 
-    public Vase(){
-
+    public Vase() {
     }
 
-    public Vase(int vaule, String creator, int height, String material){
-        super(vaule, creator);
+    public Vase(int value, String creator, int height, String material) {
+        super(value, creator);
         this.height = height;
         this.material = material;
     }
 
-    public get_height(){
+    public int get_height() {
         return height;
     }
 
-    public get_material(){
+    public String get_material() {
         return material;
     }
 
-    public output_Vase(){
-        System.out.println("Height >> " +height);
-        System.out.println("Material >> " +material);
+    public void set_height(int height) {
+        this.height = height;
     }
 
-    public intput_Vase(){
+    public void set_material(String material) {
+        this.material = material;
+    }
+
+    public void outputVase() {
+        output();
+        System.out.println("Height: " + height);
+        System.out.println("Material: " + material);
+    }
+
+    public void inputVase() {
         input();
-        this.height = sc.nextInt();
-        this.material = sc.nextLine();
+        try {
+            System.out.print("Enter height: ");
+            this.height = sc.nextInt();
+            sc.nextLine();
+            System.out.print("Enter material: ");
+            this.material = sc.nextLine();
+        } catch (Exception e) {
+            System.out.println("Invalid input: " + e.getMessage());
+        }
     }
 }

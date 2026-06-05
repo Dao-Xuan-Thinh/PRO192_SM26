@@ -44,20 +44,30 @@ public class Painting extends Item {
         this.isFramed = isFramed;
     }
 
-    public void outputPainting(){
-        System.out.println( "Height >> "+this.height);
-        System.out.println( "Width >> "+this.width);
-        System.out.println("Is coloured >> "+this.isWatercolour);
-        System.out.println( "Is framed >> "+this.isFramed);
+    public void outputPainting() {
+        output();
+        System.out.println("Height >> " + this.height);
+        System.out.println("Width >> " + this.width);
+        System.out.println("Is watercolour >> " + this.isWatercolour);
+        System.out.println("Is framed >> " + this.isFramed);
     }
 
-    public void inputPainting(){
+    public void inputPainting() {
         input();
-        this.height = sc.nextInt();
-        this.width = sc.nextInt();
-        sc.nextLine();
-        this.isWatercolour = sc.nextBoolean();
-        sc.nextLine();
-        this.isFramed = sc.nextBoolean();
+        try {
+            System.out.print("Enter height: ");
+            this.height = sc.nextInt();
+            System.out.print("Enter width: ");
+            this.width = sc.nextInt();
+            sc.nextLine();
+            System.out.print("Enter isWatercolour (true/false): ");
+            this.isWatercolour = sc.nextBoolean();
+            sc.nextLine();
+            System.out.print("Enter isFramed (true/false): ");
+            this.isFramed = sc.nextBoolean();
+            sc.nextLine();
+        } catch (Exception e) {
+            System.out.println("Invalid input: " + e.getMessage());
+        }
     }
 }
