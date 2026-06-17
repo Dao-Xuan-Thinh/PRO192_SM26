@@ -1,0 +1,6 @@
+E001 John Doe 50000.0
+E002 Jane Smith 55000.0
+E003 Mark Johnson 48000.0
+E004 Vunha 2000.0
+E005 Demo 1500.0
+E006 hoang 2000.0
