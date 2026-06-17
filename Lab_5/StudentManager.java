@@ -1,49 +1,23 @@
 package Lab_5;
 
-import java.util.Scanner;
-
 public class StudentManager {
-    public static Scanner sc = new Scanner(System.in);
-    public static void main(String[] args) {
-        public static int inputInt(String msg, int min, int max){
-            if (min > max){
-                int t = min; 
-                min = max;
-                max = t;
+    public static void main(String[] args){
+        String[] options= { "Add new student","Search a student",
+            "Update name and mark", "Remove a student","List all", "Quit"};
+        int choice=0;
+        StudentList list= new StudentList();
+        do{
+            System.out.println("\nStudent managing Program");
+            choice = Menu.getChoice(options);
+            switch(choice){
+                case 1: list.addStudent(); break;
+                case 2: list.searchStudent(); break;
+                case 3: list.updateStudent(); break;
+                case 4: list.removeStudent(); break;
+                case 5: list.printAll(); break;
+                default: System.out.println("Bye!");
             }
-
-            int data;
-            do{
-                System.out.print(msg);
-                data = Integer.parseInt(sc.nextLine());
-            } while (data < min || data > max);
-            return data;
         }
-    }
-
-    public static String inputStr(String msg){
-        System.out.print(msg);
-        String data = sc.nextLine().trim();
-        return data;
-    }
-
-    public static String inputNonBlankStr(String msg){
-        String data;
-        do{
-            System.out.print(msg);
-            data = sc.nextLine();
-        }
-        while (data.length() == 0);
-        return data;
-    }
-
-    public static String inputPattern(String msg, String pattern){
-        String data;
-        do{
-            System.out.print(msg);
-            data = sc.nextLine().trim();
-        }
-        while (!data.matches(pattern));
-        return data;
+        while (choice >0 && choice < 6);
     }
 }
